@@ -50,47 +50,21 @@ void main()
         UART_connect();
         int result  = 0x00;          		//
         int resulta  = 0x00;          		//
-        int resultb  = 0x00;          		//
-        int result1 = 0x00;          		//
-        int result2 = 0x00;          		//
-        int result3 = 0x00;          		//
-        int result4 = 0x00;          		//
+
         int cnt;
         int i;
         init();  				//
 	adc_init();
-	while (1)                  		//
+        result = 0x00;
+        while (1)                  		//
 	{
-            for (cnt =600;cnt--;)               //
+            for (cnt =900;cnt--;)               //
             {                                   //
-                result1 = 0x00;              	//
-                result1 = ad_0();
-
-                result2 = 0x00;              	//
-                result2 = ad_0();
-
-                result3 = 0x00;              	//
-                result3 = ad_0();
-
-                result4 = 0x00;              	//
-                result4 = ad_0();
-
-                resulta =  ( result1 + result2 + result3 + result4) / 4;
-                result1 = 0x00;              	//
-                result1 = ad_0();
-
-                result2 = 0x00;              	//
-                result2 = ad_0();
-
-                result3 = 0x00;              	//
-                result3 = ad_0();
-
-                result4 = 0x00;              	//
-                result4 = ad_0();
-
-                resultb =  ( result1 + result2 + result3 + result4) / 4;
-                result  =  ( resulta + resultb ) / 2;
-                seven_seg_display(result);      // Send t0 Display
+                resulta = 0x00;              	//
+                resulta = ad_0();
+// Low pass filter - nice way to smooth things
+                result  = result + (0.15 * (resulta - result ));
+                seven_seg_display(result);      // Send to Display
             }
             UART_Display(result);        	// Send out via UART
         }
@@ -122,7 +96,7 @@ void UART_connect()
     UART_Write_Text("AT+CWMODE=1\r\n");
 
     __delay_ms(1000);
-    UART_Write_Text("AT+CWJAP=\"PUT_YOUR_WIFI_SSID_HERE\",\"PUT_YOUR WIFI_PASSWORD_HERE\"\r\n");
+    UART_Write_Text("AT+CWJAP=\"chateau_EXT\",\"D1strict123\"\r\n");
     __delay_ms(7000);
 }
 
@@ -174,7 +148,7 @@ void UART_Display(int x)
         __delay_ms(1000);
         UART_Write_Text("AT+CIPSEND=47\r\n");
         __delay_ms(1000);
-        UART_Write_Text("GET /update?key=PUT_YOUR API_KEY_HERE&field1=");
+        UART_Write_Text("GET /update?key=FAJ09GUV271O87UK&field1=");
 
         if(qian>0x30)
             UART_Write_Char(qian);
