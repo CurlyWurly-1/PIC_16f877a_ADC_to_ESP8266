@@ -96,7 +96,7 @@ void UART_connect()
     UART_Write_Text("AT+CWMODE=1\r\n");
 
     __delay_ms(1000);
-    UART_Write_Text("AT+CWJAP=\"chateau_EXT\",\"D1strict123\"\r\n");
+    UART_Write_Text("AT+CWJAP=\"PUT_YOUR_WIFI_SSID_HERE\",\"PUT_YOUR_WIFI_PASSWORD_HERE\"\r\n");
     __delay_ms(7000);
 }
 
@@ -148,7 +148,7 @@ void UART_Display(int x)
         __delay_ms(1000);
         UART_Write_Text("AT+CIPSEND=47\r\n");
         __delay_ms(1000);
-        UART_Write_Text("GET /update?key=FAJ09GUV271O87UK&field1=");
+        UART_Write_Text("GET /update?key=PUT_YOUR_THINGSPEAK_KEY_HERE&field1=");
 
         if(qian>0x30)
             UART_Write_Char(qian);
