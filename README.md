@@ -5,6 +5,8 @@ using the ESP8266 module (via wifi) to update a Thingspeak graph.
 N.B. Please note the following to get this working/ You need:
 
 - Pic 16f877a (programmed with the code here)
+- 4Mhz crystal and 2 X 22pf capacitors (any ceramic will do)
+- Small pushbutton switch (for reset)
 - 5V Power supply
 - 3.3 volt regulator (TS1086)
 - ESP8266 (Version 1)
@@ -21,6 +23,17 @@ PIC
 - pic RC7(RX) -> ESP8266 TX pin
 - pic Ground  -> ESP8266 Ground
 - pic RE1     -> Potentiometer pin 2 (wiper)
+- pin 1       -> push button pin 1 and 10K resistor left
+- pin 11      -> 5V power supply
+- pin 12      -> Ground
+
+Push button
+- pin 1       -> PIC pin 1 and 10K resistor left
+- pin 2       -> Ground
+
+10K resistor
+- Left          -> PIC pin 1 and push button pin 1
+- Right         -> 5V 
 
 Potentiometer
 - pin 1  -> 5V     
