@@ -1,6 +1,6 @@
 # PIC_16f877a_ADC_to_ESP8266
 This code reads the voltage on the ADC channel of the pic16f877a (pin RE1) and transmits a value between 0 and 100
-using the ESP8266 modulevia wifi to update a Thingspeak graph.
+using the ESP8266 module (via wifi) to update a Thingspeak graph.
 
 N.B. Please note the following to get this working/ You need:
 
