@@ -5,19 +5,12 @@ using the ESP8266 modulevia wifi to update a Thingspeak graph.
 N.B. Please note the following to get this working/ You need:
 
 • Pic 16f877a (programmed with the code here)
-
 • 5V Power supply
-
 • 3.3 volt regulator (TS1086)
-
 • ESP8266 (Version 1)
-
 • Breadboard
-
 • 1k and 2.2k resistors (to divide voltage from 5v to 3.3v for the RX line)
-
 • Potentiometer (10K lin)
-
 • Jumper wires
 
 
