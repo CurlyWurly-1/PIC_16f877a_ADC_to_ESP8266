@@ -2,7 +2,7 @@
 
 <img src="sintech pic16f877a.jpg" alt="Dev board"/>
 
-Using the Development board above, this code reads the voltage on the ADC channel of the pic16f877a (pin RE1) and transmits a value between 0 and 100
+Using the development board above, this code reads the voltage on the ADC channel of the pic16f877a (pin RE1) and transmits a value between 0 and 100
 using the ESP8266 module (via wifi) to update a Thingspeak graph.
 N.B. for pics of the breadboard, please look at the issues (on the right)
 N.B. Please note, the following components are required: 
